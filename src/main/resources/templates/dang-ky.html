@@ -5,19 +5,41 @@
         <title>Title</title>
     </th:block>
 </head>
-<body class="materialdesign">
+<body id="page-top">
 <th:block th:replace="/flagments/sidebar::sidebar"></th:block>
 <form action="#" th:action="@{/dang-ky.html}" th:object="${thiSinhDTO}" method="post">
     <div class="form-group-inner">
         <div class="row">
             <div class="col-lg-3">
-                <label class="login2 pull-right pull-right-pro">Họ tên</label>
+                <label class="login2 pull-right pull-right-pro">Họ</label>
             </div>
             <div class="col-lg-5">
                 <div class="input-mark-inner mg-b-22">
-                    <input type="text" id="hoTen" th:field="*{hoTen}" class="form-control" name="hoTen" />
-                    <span th:if="${#fields.hasErrors('hoTen')}" th:errors="*{hoTen}" class="badge badge-danger left"></span>
+                    <input type="text" id="ho" th:field="*{ho}" class="form-control" name="ho" />
+                    <span th:if="${#fields.hasErrors('ho')}" th:errors="*{ho}" class="badge badge-danger left"></span>
                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+                <label class="login2 pull-right pull-right-pro">Tên</label>
+            </div>
+            <div class="col-lg-5">
+                <div class="input-mark-inner mg-b-22">
+                    <input type="text" id="ten" th:field="*{ten}" class="form-control" name="ten" />
+                    <span th:if="${#fields.hasErrors('ten')}" th:errors="*{ten}" class="badge badge-danger left"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+                <label class="login2 pull-right pull-right-pro">Giới tính</label>
+            </div>
+            <div class="col-lg-5">
+                <select th:field="*{gioiTinh}">
+                    <option th:value="0" th:text="Nam"></option>
+                    <option th:value="1" th:text="Nữ"></option>
+                </select>
             </div>
         </div>
         <div class="row">
@@ -59,6 +81,32 @@
         </div>
         <div class="row">
             <div class="col-lg-3">
+                <label class="login2 pull-right pull-right-pro">Ngày cấp</label>
+            </div>
+            <div class="col-lg-5">
+                <div class="input-mark-inner mg-b-22">
+                    <div class="form-group data-custon-pick" id="ngayCap">
+                        <div class="input-group date">
+                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                            <input type="text" class="form-control" id="datePicker-1" th:field="*{ngayCap}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+                <label class="login2 pull-right pull-right-pro">Điện thoại</label>
+            </div>
+            <div class="col-lg-5">
+                <div class="input-mark-inner mg-b-22">
+                    <input type="text" id="noiCap" th:field="*{noiCap}" class="form-control" name="noiCap" />
+                    <span th:if="${#fields.hasErrors('noiCap')}" th:errors="*{noiCap}" class="badge badge-danger left"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
                 <label class="login2 pull-right pull-right-pro">Điện thoại</label>
             </div>
             <div class="col-lg-5">
@@ -78,6 +126,17 @@
                     <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="badge badge-danger left"></span>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3">
+            <label class="login2 pull-right pull-right-pro">Loại tín chỉ</label>
+        </div>
+        <div class="col-lg-5">
+            <select th:field="*{loaiChungChi}">
+                <option th:value="0" th:text="A2"></option>
+                <option th:value="1" th:text="B1"></option>
+            </select>
         </div>
     </div>
     <div class="form-group-inner">
