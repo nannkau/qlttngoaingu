@@ -32,19 +32,19 @@
         </div>
         <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
             <div class="col-lg-6">
-                <form action="" method="POST" enctype="multipart/form-data">
+                <form action="#" th:action="@{/thong-tin-thi-sinh.html}" th:object="${thiSinhForm}" method="post">
                     <div class="row">
                         <div class="row">
                             <div class="col-md-5 pr-1">
                                 <div class="form-group">
                                     <label>Họ Tên Thí Sinh</label>
-                                    <input type="text" class="form-control" name="hoten" value="" >
+                                    <input th:field="*{name}" type="text" class="form-control" name="hoten" value="" >
                                 </div>
                             </div>
                             <div class="col-md-5 pr-1">
                                 <div class="form-group">
                                     <label>Số Điện Thoại</label>
-                                    <input type="text" class="form-control" name="sdt" value="" >
+                                    <input  th:field="*{phone}" type="text" class="form-control" name="sdt" value="" >
                                 </div>
                             </div>
                            <div class="row" style="margin-top: 20px">
@@ -65,42 +65,47 @@
                         <label>-----------------------------------------</label>
                     </div>
                     <h2 class="mt-0">Thông tin thí sinh</h2>
-                    <div class="col-md-5 pr-1">
-                        <div class="form-group">
-                            <label>Số Báo Danh: </label>
-                            <label class="col-form-label">A2001</label>
-                        </div>
+                    <div th:if="${list !=null}">
+                        <th:block th:each=" obj :${list}">
+                            <div class="col-md-5 pr-1">
+                                <div class="form-group">
+                                    <label>Số Báo Danh: </label>
+                                    <label class="col-form-label" th:text="${obj.getSoBaoDanh()}"></label>
+                                </div>
+                            </div>
+                            <div class="col-md-5 pr-1">
+                                <div class="form-group">
+                                    <label>Tên Phòng Thi: </label>
+                                    <label class="col-form-label" th:text="${obj.getPhong()}"></label>
+                                </div>
+                            </div>
+                            <div class="col-md-5 pr-1">
+                                <div class="form-group">
+                                    <label>Điểm Nghe: </label>
+                                    <label class="col-form-label" th:text="${obj.getNghe()}"></label>
+                                </div>
+                            </div>
+                            <div class="col-md-5 pr-1">
+                                <div class="form-group">
+                                    <label>Điểm Nói: </label>
+                                    <label class="col-form-label" th:text="${obj.getNoi()}"> </label>
+                                </div>
+                            </div>
+                            <div class="col-md-5 pr-1">
+                                <div class="form-group">
+                                    <label>Điểm Đọc: </label>
+                                    <label class="col-form-label" th:text="${obj.getDoc()}"></label>
+                                </div>
+                            </div>
+                            <div class="col-md-5 pr-1">
+                                <div class="form-group">
+                                    <label>Điểm Viết: </label>
+                                    <label class="col-form-label" th:text="${obj.getViet()}"> </label>
+                                </div>
+                            </div>
+                        </th:block>
                     </div>
-                    <div class="col-md-5 pr-1">
-                        <div class="form-group">
-                            <label>Tên Phòng Thi: </label>
-                            <label class="col-form-label">A2P004</label>
-                        </div>
-                    </div>
-                    <div class="col-md-5 pr-1">
-                        <div class="form-group">
-                            <label>Điểm Nghe: </label>
-                            <label class="col-form-label">8</label>
-                        </div>
-                    </div>
-                    <div class="col-md-5 pr-1">
-                        <div class="form-group">
-                            <label>Điểm Nói: </label>
-                            <label class="col-form-label">8 </label>
-                        </div>
-                    </div>
-                    <div class="col-md-5 pr-1">
-                        <div class="form-group">
-                            <label>Điểm Đọc: </label>
-                            <label class="col-form-label">8 </label>
-                        </div>
-                    </div>
-                    <div class="col-md-5 pr-1">
-                        <div class="form-group">
-                            <label>Điểm Viết: </label>
-                            <label class="col-form-label"> 8</label>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>

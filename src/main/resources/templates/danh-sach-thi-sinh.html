@@ -30,28 +30,45 @@
             </div>
         </div>
         <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+            <form action="#" th:action="@{/danh-sach-thi-sinh.html}" th:object="${danhSachThiSinhForm}" method="post">
             <div class="row">
-                <div class="col-md-5 pr-1">
-                    <div class="form-group">
-                        <label>Tên Phòng Thi:</label>
-                       <select name="phongthi">
-                           <option value="">
-                               A2P001
-                           </option>
-                       </select>
-                    </div>
+                <div class="form-select mb-3">
+                    <label for="trinhDo">Tìm kiếm với</label>
+                    <select th:field="*{option}" id="trinhDo" class="form-control">
+                        <option th:value="P" th:text="Phong"></option>
+                        <option th:value="K" th:text="Khoa"></option>
+                    </select>
+                </div>
+            </div>
+                <div class="row">
+                <div class="form-select mb-3">
+                    <label for="phongThi">Phòng Thi</label>
+                    <select id="phongThi" class="form-control" th:field="*{phongThiId}">
+                        <option th:each="phongThi : ${phongThis}" th:value="${phongThi.getId()}" th:text="${phongThi.getName()}"></option>
+                    </select>
                 </div>
                 <div class="col-md-5 pr-1">
                     <div class="form-group">
-                        <label>Khóa Thi:</label>
-                        <select name="khoathi">
-                            <option value="">
-                                K18
-                            </option>
-                        </select>
+                        <div class="form-select mb-3">
+                            <label for="khoaThi">Khóa Thi</label>
+                            <select id="khoaThi" class="form-control" th:field="*{khoaThiId}">
+                                <option th:each="khoaThi : ${khoaThis}" th:value="${khoaThi.getKhoaThiId()}" th:text="${khoaThi.getTenKhoa()}"></option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </div>
+                <div class="row" style="margin-top: 20px">
+                    <div class="col-md-3">
+                    </div>
+                    <div class="col-md-6">
+                        <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Tìm Kiếm</button>
+                    </div>
+                    <div class="col-md-3">
+                    </div>
+
+                </div>
+            </form>
             <div>
                <br/>
             </div>
@@ -67,12 +84,12 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>C.Huyền</td>
-                        <td>A002</td>
-                        <td>2568956235</td>
-                        <td>0235689562</td>
-                        <td>Đồng Nai</td>
+                    <tr th:each=" danhSachThiSinh :${danhSachThiSinhs}">
+                        <td th:text="${danhSachThiSinh.getTen()}">C.Huyền</td>
+                        <td  th:text="${danhSachThiSinh.getSoBaoDanh()}">A002</td>
+                        <td th:text="${danhSachThiSinh.getCmnd()}" >2568956235</td>
+                        <td th:text="${danhSachThiSinh.getSoDienThoai()}" >0235689562</td>
+                        <td th:text="${danhSachThiSinh.getNoiSinh()}" >Đồng Nai</td>
                     </tr>
                     </tbody>
                 </table>
@@ -81,7 +98,7 @@
     </div>
 </section>
 <th:block th:replace="/flagments/footer::footer"></th:block>
-<script>
+<script  type="text/javascript">
     $(document).ready(function() {
         $('#example').DataTable();
     } );
