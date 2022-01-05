@@ -97,6 +97,7 @@ public class ThiSinhService {
                 danhSachThiSinh.setSoBaoDanh(s[1]!=null?s[1].toString():"");
                 danhSachThiSinh.setCmnd(s[2]!=null?s[2].toString():"");
                 danhSachThiSinh.setSoDienThoai(s[3]!=null?s[3].toString():"");
+                danhSachThiSinh.setNoiSinh(s[4]!=null?s[4].toString():"");
                 result.add(danhSachThiSinh);
             });
             return result;

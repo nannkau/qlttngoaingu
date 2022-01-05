@@ -47,6 +47,10 @@ public class ThiSinhController {
     @RequestMapping(value = {"/danh-sach-thi-sinh.html"},method = RequestMethod.POST)
     public String list(Model model, DanhSachThiSinhForm danhSachThiSinhForm){
         List<DanhSachThiSinh> danhSachThiSinhs= new ArrayList<>();
+        List<KhoaThi> khoaThis= khoaThiService.getAll();
+        List<PhongThi> phongThis= khoaThiService.getPhongThi();
+        model.addAttribute("khoaThis",khoaThis);
+        model.addAttribute("phongThis",phongThis);
         if (danhSachThiSinhForm.getOption().equals("K")){
             danhSachThiSinhs=thiSinhService.getDanhSachThiSinh(danhSachThiSinhForm.getKhoaThiId(),true);
         }
