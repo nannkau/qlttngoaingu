@@ -12,6 +12,7 @@ public class DangKiForm {
     private String hoTen;
     private String ngaySinh;
     private String cmnd;
+    private String noiSinh;
     private String soDienThoai;
     private String email;
     private String trinhDo;

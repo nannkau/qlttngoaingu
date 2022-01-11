@@ -25,4 +25,7 @@ public class ThiSinh implements Serializable {
     private String soDienThoai;
     @Column(name = "email")
     private String email;
+    @Column(name = "noi_sinh")
+    private String noiSinh;
+
 }

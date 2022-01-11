@@ -36,6 +36,7 @@ public class ThiSinhService {
         ThiSinh thiSinh= new ThiSinh();
         thiSinh.setNgaySinh(stringToDate(dangKiForm.getNgaySinh()));
         thiSinh.setCmnd(dangKiForm.getCmnd());
+        thiSinh.setNoiSinh(dangKiForm.getNoiSinh());
         thiSinh.setEmail(dangKiForm.getEmail());
         thiSinh.setHoTen(dangKiForm.getHoTen());
         thiSinh.setSoDienThoai(dangKiForm.getSoDienThoai());
